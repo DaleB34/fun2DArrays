@@ -1,20 +1,51 @@
-import java.util.ArrayList;
 
 public class Main
 {
     public static void main(String[] args)
     {
 
-        ArrayList<Integer> funArray = new ArrayList<Integer>();
+        int[][] fun = new int[5][5];
 
-        for(int row = 0; row < 5; row++)
+
+        System.out.println("Problem 1/2\n");
+        for (int row = 0; row < fun.length; row++)
+            for(int col = 0; col < fun[0].length; col++)
+                //fun[row][col] = col; // problem 1
+                //fun[row][col] = row; //problem 2
+
+        for (int r = 0; r < fun.length; r++)
         {
-            for(int column = 0; column < 5; column++)
-            {
-                funArray.add();
-            }//end inner for loop
+            for (int c = 0; c < fun[0].length; c++)
+                System.out.print(fun[r][c] + " ");
+            System.out.println();
+        }
 
-        }//end out for loop
+
+        System.out.println("Problem 3\n");
+        for (int row = 0; row < fun.length; row++)
+            for(int col = 0; col < fun[0].length; col++)
+                fun[row][col] = ((row + 1) * 5) - col;
+
+        for (int r = 0; r < fun.length; r++)
+        {
+            for (int c = 0; c < fun[0].length; c++)
+                System.out.print(fun[r][c] + " ");
+            System.out.println();
+        }
+
+        System.out.println("Problem 9\n");
+        for (int row = 0; row < fun.length; row++)
+            for(int col = 0; col < fun[0].length; col++)
+                fun[row][col] = col +1;
+
+        for (int r = 0; r < fun.length; r++)
+        {
+            for (int c = 0; c < fun[0].length; c++)
+                System.out.print(fun[r][c] + " ");
+            System.out.println();
+        }
+
+
 
     }//end main method
 }//end class
