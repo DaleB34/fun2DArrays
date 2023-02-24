@@ -7,7 +7,7 @@ public class Main
         int[][] fun = new int[5][5];
 
 
-        System.out.println("Problem 1/2\n");
+        System.out.println("\nProblem 1/2");
         for (int row = 0; row < fun.length; row++)
             for(int col = 0; col < fun[0].length; col++)
                 //fun[row][col] = col; // problem 1
@@ -16,7 +16,7 @@ public class Main
         printString(fun);
 
 
-        System.out.println("Problem 3\n");
+        System.out.println("\nProblem 3");
         for (int row = 0; row < fun.length; row++)
             for(int col = 0; col < fun[0].length; col++)
                 fun[row][col] = ((row + 1) * 5) - col;
@@ -24,7 +24,7 @@ public class Main
         printString(fun);
 
 
-        System.out.println("Problem 9\n");
+        System.out.println("\nProblem 9");
 
         int counter = 1;
         for (int row = 0; row < fun.length; row++)
@@ -50,7 +50,7 @@ public class Main
 ///////////////////end problem 9\\\\\\\\\\\\\\\\\\\\
 
         counter = 1;
-        System.out.println("Problem 10\n");
+        System.out.println("\nProblem 10");
 
         for (int row = 0; row < fun.length; row++)
         {
@@ -61,6 +61,52 @@ public class Main
             }
             counter += row;
         }
+
+        for (int row = 1; row < fun.length; row ++)
+        {
+            counter = fun[row][fun[0].length-1] + 1;
+            for(int col = 0; col < row; col++)
+            {
+                fun[row][col] = counter;
+                counter++;
+            }
+        }
+        printString(fun);
+
+//////////////end problem 10\\\\\\\\\\\\\\\\\\\\
+
+        int newrow = 0;
+        counter = 1;
+        System.out.println("\nProblem 11");
+
+        for (int row = 0; row < fun.length; row++)
+        {
+            newrow = row;
+            for (int col = 0; col < row +1; col++)
+            {
+                fun[newrow][col] = counter;
+                counter++;
+                if(newrow > 0)
+                {
+                    newrow--;
+                }
+            }
+        }
+
+        for(int row = fun.length - 1; row > 0; row = fun.length -1)
+        {
+            newrow = row;
+            for(int col = 1; col < row - 1; col++)
+            {
+                fun[newrow][col] = counter;
+                counter++;
+                if(newrow > col - fun[0].length)
+                {
+                    newrow--;
+                }
+            }
+        }
+
         printString(fun);
 
     }//end main method
@@ -70,15 +116,9 @@ public class Main
         for (int r = 0; r < fun.length; r++)
         {
             for (int c = 0; c < fun[0].length; c++)
-                System.out.print(fun[r][c] + " ");
+                System.out.printf("%3d", fun[r][c]);
             System.out.println();
         }
     }//end printString
-    public static void resetArray(int[][] fixed)
-    {
-        for (int r = 0; r < fixed.length; r++)
-            for (int c = 0; c < fixed[0].length; c++)
-                fixed[r][c] = 0;
-    }
 
 }//end class
